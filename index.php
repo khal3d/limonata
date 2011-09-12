@@ -5,7 +5,7 @@ ini_set('display_errors', 1);
 // Define the Limonata for security reasons
 define('LIMONATA', TRUE);
 
-// The name of THIS file
+// The name of this file
 define('LIMONATA_INDEX', pathinfo(__FILE__, PATHINFO_BASENAME));
 
 // Short define for DIRECTORY_SEPARATOR

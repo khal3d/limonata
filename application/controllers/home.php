@@ -11,7 +11,8 @@ class Home extends LIM_controller {
 	
 	public function home()
 	{
-		echo 'Hello, World!';
+		echo 'Hello, World! <br />';
+		echo $this->input->get('msg');
 	}
 	
 	## ---------------------------------------------------------------

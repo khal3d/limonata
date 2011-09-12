@@ -52,3 +52,6 @@ class LIM_Loader {
 	## ---------------------------------------------------------------
 	
 }
+
+/* End of file loader.php */
+/* Location: ./system/core/loader.php */

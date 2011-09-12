@@ -11,7 +11,7 @@ class Home extends LIM_controller {
 	
 	public function home()
 	{
-		echo 'Hello, World! <br />';
+		$this->load->view('home', array('name' => 'Khaled Attia'));
 	}
 	
 	## ---------------------------------------------------------------

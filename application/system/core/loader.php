@@ -2,6 +2,8 @@
 
 class LIM_Loader {
 	
+	private $view_data = array();
+	
 	public function __construct()
 	{
 		
@@ -9,9 +11,16 @@ class LIM_Loader {
 	
 	## ---------------------------------------------------------------
 	
-	public function view()
+	public function view($view, $data = array())
 	{
+		$view_file = APPPATH . 'views' . DS . $view . '_view.php';
+		if( ! file_exists($view_file) )
+			exit('View file not found! ' . $view_file);
 		
+		$this->view_data = array_merge($this->view_data, $data);
+		extract($this->view_data);
+		
+		include_once( $view_file );
 	}
 	
 	## ---------------------------------------------------------------

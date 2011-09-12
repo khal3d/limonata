@@ -19,6 +19,7 @@ class Home extends LIM_controller {
 	
 	public function phpinfo()
 	{
+     // php info
 		phpinfo();
 	}
 	

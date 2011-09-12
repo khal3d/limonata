@@ -21,7 +21,7 @@ $controller_path	=  APPPATH . 'controllers' . DS . $ROUTER->controller . '.php';
 
 if( ! file_exists($controller_path) )
 {
-	exit('Controller file is not exists!');
+	exit('Controller file is not exists!' . $controller_path);
 }
 
 include_once( $controller_path );

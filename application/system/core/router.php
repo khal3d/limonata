@@ -3,8 +3,9 @@
 class LIM_Router {
 	
 	protected $router;
-	public $controller, $method = 'home';
-	// public $method;
+	public $controller	= 'home';
+	public $method		= 'home';
+	
 	
 	## ---------------------------------------------------------------
 	

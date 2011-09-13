@@ -15,13 +15,10 @@ $ROUTER = load_class('router', 'core', 'LIM_');
 // Load the base controller class
 include_once( COREPATH . 'controller.php');
 
-// @todo: URI & Router
-$method				= ! empty($_GET['m']) ? $_GET['m'] : 'home';
 $controller_path	=  APPPATH . 'controllers' . DS . $ROUTER->controller . '.php';
-
 if( ! file_exists($controller_path) )
 {
-	exit('Controller file is not exists!');
+	show_error('Controller file is not exists!', __FILE__, __LINE__);
 }
 
 include_once( $controller_path );

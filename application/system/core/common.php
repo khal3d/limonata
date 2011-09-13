@@ -69,6 +69,13 @@ if( ! function_exists( 'loaded_classes' ) )
 
 ## ---------------------------------------------------------------
 
-
+if( ! function_exists('show_error') )
+{
+	function show_error($message, $file = '', $line = '')
+	{
+		//@todo: Exceptions class
+		exit($message . "<br />{$file}:{$line}");
+	}
+}
 
 ## ---------------------------------------------------------------

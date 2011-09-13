@@ -3,6 +3,7 @@
 class LIM_controller {
 	
 	public $load;
+	private static $instance;
 	
 	public function __construct()
 	{	
@@ -12,15 +13,26 @@ class LIM_controller {
 		}
 		
 		$this->load =& load_class('loader', 'core', 'LIM_');
+		$this->load->autoloader();
 	}
 	
 	## ---------------------------------------------------------------
 	
-	public function hello_world()
+	public static function &get_instance()
 	{
-		echo 'Hello, World!';
+		return self::$instance;
+	}
+	
+	## ---------------------------------------------------------------
+	
+	public function limonata()
+	{
+		echo 'Limonata version: ' . LIMONATA_VERSION;
 	}
 	
 	## ---------------------------------------------------------------
 	
 }
+
+/* End of file controller.php */
+/* Location: ./system/core/controller.php */

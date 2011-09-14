@@ -58,6 +58,5 @@ ini_set('display_errors', 1);
  */
 	include_once( COREPATH . 'limonata.php' );
 
-
 /* End of file index.php */
 /* Location: ./index.php */

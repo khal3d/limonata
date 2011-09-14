@@ -2,7 +2,13 @@
 
 class LIM_Loader {
 	
-	private $view_data = array();
+	private	$view_data	= array();
+	public	$_views		= array();
+	public	$_helpers	= array();
+	public	$_model		= array();
+	public	$_libraries	= array();
+	public	$_config	= array();
+	
 	
 	public function __construct()
 	{
@@ -38,6 +44,7 @@ class LIM_Loader {
 				show_error("Helper file {$helper_file} dosn't exists");
 			
 			include_once($helper_file);
+			$this->_helpers[] = $helper;
 		}
 	}
 	

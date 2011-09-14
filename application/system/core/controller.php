@@ -27,7 +27,7 @@ class LIM_controller {
 	
 	public function limonata()
 	{
-		echo 'Limonata version: ' . LIMONATA_VERSION;
+		echo 'Limonata version: ' . LIMONATA_VERSION . ' Revision: ' . LIMONATA_REVISION;
 	}
 	
 	## ---------------------------------------------------------------

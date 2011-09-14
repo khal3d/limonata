@@ -4,7 +4,7 @@
 define('LIMONATA_VERSION', '0.0.1');
 
 // Define the SVN revesion
-define('LIMONATA_REVISION', 11);
+define('LIMONATA_REVISION', 13);
 
 // Load the global functions
 include_once( COREPATH . 'common.php' );

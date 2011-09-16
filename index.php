@@ -1,7 +1,7 @@
 <?php
 /**
  * $Rev$
- * $HeadURL:$
+ * $Id$
  */
 
 // Display errors in production mode

@@ -1,7 +1,7 @@
 <?php
 /**
  * $Rev$
- * $Id$
+ * $Date$
  * $HeadURL$
  */
 

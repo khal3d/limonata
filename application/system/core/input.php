@@ -1,4 +1,9 @@
 <?php if ( ! defined('LIMONATA') ) exit( 'No direct script access allowed' );
+/**
+ * $Rev$
+ * $Date$
+ * $HeadURL$
+ */
 
 // @todo: Certainly we need a lot of protection
 

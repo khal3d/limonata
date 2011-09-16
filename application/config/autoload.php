@@ -1,5 +1,11 @@
 <?php if ( ! defined('LIMONATA') ) exit( 'No direct script access allowed' );
 /**
+ * $Rev$
+ * $Date$
+ * $HeadURL$
+ */
+
+/**
  * ---------------------------------------------------------------
  * Auto-load Config Files
  * ---------------------------------------------------------------

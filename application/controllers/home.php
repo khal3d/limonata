@@ -1,4 +1,9 @@
 <?php if ( ! defined('LIMONATA') ) exit( 'No direct script access allowed' );
+/**
+ * $Rev$
+ * $Date$
+ * $HeadURL$
+ */
 
 class Home extends LIM_controller {
 	

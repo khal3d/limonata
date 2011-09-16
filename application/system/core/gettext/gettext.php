@@ -1,4 +1,10 @@
 <?php if (!defined('LIMONATA')) exit('No direct script access allowed');
+/**
+ * $Rev$
+ * $Date$
+ * $HeadURL$
+ */
+
 /*
  Copyright (c) 2003, 2009 Danilo Segan <danilo@kvota.net>.
  Copyright (c) 2005 Nico Kaiser <nico@siriux.net>

@@ -1,10 +1,15 @@
 <?php if ( ! defined('LIMONATA') ) exit( 'No direct script access allowed' );
+/**
+ * $Rev$
+ * $Date$
+ * $HeadURL$
+ */
 
 // Define the Limonata version
 define('LIMONATA_VERSION', '0.0.1');
 
 // Define the SVN revesion
-define('LIMONATA_REVISION', 15);
+define('LIMONATA_REVISION', 28);
 
 // Load the global functions
 include_once( COREPATH . 'common.php' );

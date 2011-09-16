@@ -1,6 +1,7 @@
 <?php
 /**
  * $Rev$
+ * $HeadURL:$
  */
 
 // Display errors in production mode

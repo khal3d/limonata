@@ -3,6 +3,9 @@
 class LIM_controller {
 	
 	public $load;
+	public $library;
+	public $model;
+	
 	private static $instance;
 	
 	public function __construct()
@@ -14,6 +17,11 @@ class LIM_controller {
 		
 		$this->load =& load_class('loader', 'core', 'LIM_');
 		$this->load->autoloader();
+		
+		foreach ( $this->load->_libraries as $library) {
+			// $this->library->$library = new $library();
+			echo $library;
+		}
 	}
 	
 	## ---------------------------------------------------------------

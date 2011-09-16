@@ -23,4 +23,12 @@ class Home extends LIM_controller {
 	
 	## ---------------------------------------------------------------
 	
+	public function gettext()
+	{
+		$this->load->library('test_library.php');
+		echo $this->library->test->hello('Hello, World!');
+	}
+	
+	## ---------------------------------------------------------------
+	
 }

@@ -57,9 +57,43 @@ class LIM_Loader {
 	
 	## ---------------------------------------------------------------
 	
-	public function library()
+	public function library($class)
 	{
+		if( is_array($class) )
+		{
+			foreach ( $class as $library )
+			{
+				$this->library($library);
+			}
+			
+			return ;
+		}
 		
+		$is_loaded = FALSE;
+		
+		$class_name = str_replace( array('_library.php'), '', trim($class, '/') );
+		
+		foreach ( array(SYSPATH .'libraries'. DS, APPPATH .'libraries'. DS) as $path )
+		{
+			$class_file = $class_name . '_library.php';
+			if( file_exists($path . $class_file) )
+			{
+				include_once( $path . $class_file );
+				if( file_exists( $path . 'MY_' . $class_file ) ) {
+					include_once( $path . 'MY_' . $class_file );
+				}
+				// FIXME: not works
+				$this->_libraries[$class_name] = array('path' => '');
+				
+				$is_loaded = TRUE;
+				
+				continue;
+			}
+		}
+		
+		if( ! $is_loaded ) {
+			show_error('Unable to load the requested class: '. $class_name);
+		}
 	}
 	
 	## ---------------------------------------------------------------
@@ -94,11 +128,11 @@ class LIM_Loader {
 			return FALSE;
 		}
 		
-		foreach ( array('config' => 'config', 'helpers' => 'helper', 'libraries' => 'library') as $load => $method )
+		foreach ( array('config' => 'config', 'helpers' => 'helper', 'libraries' => 'library') as $type => $method )
 		{
-			if( isset($autoload[$load]) )
+			if( isset($autoload[$type]) )
 			{
-				$this->{$method}($autoload[$load]);
+				$this->{$method}($autoload[$type]);
 			}
 		}
 	}

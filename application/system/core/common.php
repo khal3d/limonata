@@ -79,3 +79,13 @@ if( ! function_exists('show_error') )
 }
 
 ## ---------------------------------------------------------------
+
+if( ! function_exists('get_instance') )
+{
+	function &get_instance()
+	{
+		global $LIM;
+		return $LIM->get_instance();
+	}
+}
+## ---------------------------------------------------------------

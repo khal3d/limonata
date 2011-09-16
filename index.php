@@ -2,7 +2,7 @@
 /**
  * $Rev$
  * $Date$
- * $HeadURL$
+ * $URL$
  */
 
 // Display errors in production mode

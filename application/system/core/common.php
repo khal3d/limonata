@@ -2,7 +2,7 @@
 /**
  * $Rev$
  * $Date$
- * $HeadURL$
+ * $URL$
  */
 
 if ( ! function_exists('load_class'))

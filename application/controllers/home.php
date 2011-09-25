@@ -2,7 +2,7 @@
 /**
  * $Rev$
  * $Date$
- * $HeadURL$
+ * $URL$
  */
 
 class Home extends LIM_controller {
@@ -31,7 +31,8 @@ class Home extends LIM_controller {
 	public function gettext()
 	{
 		$this->load->library('test_library.php');
-		echo $this->library->test->hello('Hello, World!');
+		printr($this->load);
+		echo $this->library->test->my_test_method('Hello, World!');
 	}
 	
 	## ---------------------------------------------------------------

@@ -2,31 +2,30 @@
 /**
  * $Rev$
  * $Date$
- * $HeadURL$
+ * $URL$
  */
 
 class LIM_controller {
 	
 	public $load;
-	public $library;
-	public $model;
+	public $library, $model;
 	
 	private static $instance;
 	
 	public function __construct()
-	{	
-		foreach (loaded_classes() as $class => $class_name)
+	{
+		self::$instance =& $this;
+		
+		$this->library	= new stdClass;
+		$this->model	= new stdClass;
+		
+		foreach ( loaded_classes() as $class => $class_name )
 		{
 			$this->$class =& load_class($class);
 		}
 		
 		$this->load =& load_class('loader', 'core', 'LIM_');
 		$this->load->autoloader();
-		
-		foreach ( $this->load->_libraries as $library) {
-			// $this->library->$library = new $library();
-			echo $library;
-		}
 	}
 	
 	## ---------------------------------------------------------------
@@ -40,7 +39,7 @@ class LIM_controller {
 	
 	public function limonata()
 	{
-		echo 'Limonata version: ' . LIMONATA_VERSION . ' Revision: ' . LIMONATA_REVISION;
+		echo 'Limonata version: ' . LIMONATA_VERSION . ' Revision: ' . SVN_REVISION;
 	}
 	
 	## ---------------------------------------------------------------

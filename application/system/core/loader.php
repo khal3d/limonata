@@ -2,7 +2,7 @@
 /**
  * $Rev$
  * $Date$
- * $HeadURL$
+ * $URL$
  */
 
 class LIM_Loader {
@@ -13,7 +13,6 @@ class LIM_Loader {
 	public	$_model		= array();
 	public	$_libraries	= array();
 	public	$_config	= array();
-	
 	
 	public function __construct()
 	{
@@ -75,29 +74,60 @@ class LIM_Loader {
 		}
 		
 		$is_loaded = FALSE;
+		// $class_prefix = '';
 		
-		$class_name = str_replace( array('_library.php'), '', trim($class, '/') );
+		$class = str_replace( array('_library.php', '_library'), '', $class );
 		
-		foreach ( array(SYSPATH .'libraries'. DS, APPPATH .'libraries'. DS) as $path )
+		$sys_libraries_path = SYSPATH . 'libraries' . DS;
+		$app_libraries_path = APPPATH . 'libraries' . DS;
+		
+		// Guessing class file name
+		$guess_filename = array(
+				$sys_libraries_path . $class . '.php', 
+				$sys_libraries_path . $class . '_library.php', 
+				$app_libraries_path . $class . '.php', 
+				$app_libraries_path . $class . '_library.php'
+			);
+		
+		foreach ( $guess_filename as $class_file )
 		{
-			$class_file = $class_name . '_library.php';
-			if( file_exists($path . $class_file) )
+			if( file_exists($class_file) )
 			{
-				include_once( $path . $class_file );
-				if( file_exists( $path . 'MY_' . $class_file ) ) {
-					include_once( $path . 'MY_' . $class_file );
-				}
-				// FIXME: not works
-				$this->_libraries[$class_name] = array('path' => '');
+				include_once( $class_file );
+				$class_name = $class;
 				
-				$is_loaded = TRUE;
+				$extends_class = array(
+									$app_libraries_path . 'MY_' . $class . '.php', 
+									$app_libraries_path . 'MY_' . $class . '_library.php'
+								);
+				foreach ( $extends_class as $extend_class_file )
+				{
+					if( file_exists($extend_class_file) )
+					{
+						include_once( $extend_class_file );
+						
+						if( class_exists('MY_' . $class) )
+						{
+							$class_name = 'MY_' . $class;
+							continue;
+						}
+					}
+				}
+				
+				if( class_exists($class_name) )
+				{
+					$LIM =& get_instance();
+					$LIM->library->$class = new $class_name();
+					$this->_libraries[$class] = $class_name;
+					$is_loaded = TRUE;
+				}
 				
 				continue;
 			}
 		}
 		
 		if( ! $is_loaded ) {
-			show_error('Unable to load the requested class: '. $class_name);
+			show_error('Unable to load the requested class: '. $class);
 		}
 	}
 	

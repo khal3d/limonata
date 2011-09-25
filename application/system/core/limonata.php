@@ -2,14 +2,14 @@
 /**
  * $Rev$
  * $Date$
- * $HeadURL$
+ * $URL$
  */
 
 // Define the Limonata version
 define('LIMONATA_VERSION', '0.0.1');
 
 // Define the SVN revesion
-define('LIMONATA_REVISION', 28);
+define('SVN_REVISION', 30);
 
 // Load the global functions
 include_once( COREPATH . 'common.php' );
